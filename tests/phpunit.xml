@@ -1,0 +1,27 @@
+<phpunit bootstrap="./bootstrap.php"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        stopOnFailure="false">
+
+    <testsuite name="PHPUnit">
+        <directory suffix="Test.php">./unit</directory>
+    </testsuite>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">../App</directory>
+        </whitelist>
+    </filter>
+
+    <!--log要先設定好對應的位置，這樣Jenkins才能抓到log做分析-->
+    <logging>
+        <log type="coverage-html" target="reports" charset="UTF-8" />
+        <!--<log type="coverage-clover" target="logs/clover.xml"/>-->
+        <!--<log type="coverage-crap4j" target="logs/crap4j.xml"/>-->
+        <!--<log type="coverage-xml" target="logs/coverage"/>-->
+        <!--<log type="junit" target="logs/junit.xml"/>-->
+    </logging>
+
+</phpunit>
